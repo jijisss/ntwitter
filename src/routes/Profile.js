@@ -7,6 +7,14 @@ const Profile = () => {
     authService.signOut();
     navigate("/");
     }
+    return (
+        <>
+            <button onClick={onLogOutClick}>Log Out</button>
+        </>
+    );
 };
+
+
+
 
 export default Profile;

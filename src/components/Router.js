@@ -17,7 +17,8 @@ const AppRouter = ({ isLoggedIn }) => {
                 </>
                 ) : (
                 <>
-                <Route exact path="/" element={<Auth />}></Route>
+                {/* <Route exact path="/" element={<Auth />}></Route> */}
+                <Route exact path="*" element={<Auth replace to="/" />}></Route>
                 </>
                 )}
             </Routes>
