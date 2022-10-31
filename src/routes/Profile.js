@@ -6,7 +6,7 @@ import { updateProfile } from "@firebase/auth";
 import { async } from "@firebase/util";
 
 
-const Profile = ({ userObj }) => {
+const Profile = ({ refreshUser, userObj }) => {
     const navigate = useNavigate();
     const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
     const onLogOutClick = () => {
@@ -35,10 +35,9 @@ const Profile = ({ userObj }) => {
     }, []);
     const onSubmit = async (e) => {
         e.preventDefault();
-        if(userObj.displayName !== newDisplayName) {
-            await updateProfile(userObj, {
-                displayName: newDisplayName,
-            });
+        if (newName !== userObj.displayName) {
+            await updateProfile(userObj, { displayName: newName });
+            refreshUser();
         }
     };
     return (
