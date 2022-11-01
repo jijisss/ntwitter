@@ -38,7 +38,7 @@ const Profile = ({ refreshUser, userObj }) => {
         if (newName !== userObj.displayName) {
             await updateProfile(userObj, { displayName: newName });
             refreshUser();
-        }
+        };
     };
     return (
         <>
